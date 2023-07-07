@@ -17,9 +17,7 @@ def app_root():
     parsed_json = json.loads(json_string)
 
     seed_str = ""
-    for c in parsed_json['coordinates']:
-        seed_str += str(c)
-
+    seed_str = "".join(map(str, parsed_json['coordinates']))
     seed_str += str(parsed_json['uuid'])
     seed_str += str(parsed_json['timestamp'])
 
@@ -48,9 +46,7 @@ def app_api():
     parsed_json = json.loads(json_string)
 
     seed_str = ""
-    for c in parsed_json['coordinates']:
-        seed_str += str(c)
-
+    seed_str = "".join(map(str, parsed_json['coordinates']))
     seed_str += str(parsed_json['uuid'])
     seed_str += str(parsed_json['timestamp'])
 
