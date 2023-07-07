@@ -1,0 +1,17 @@
+[Unit]
+Description=AntRNG app service
+After=network.target
+
+[Service]
+Type=simple
+
+User=ant
+
+WorkingDirectory=/home/ant/projects/ant_rng/env
+ExecStart=/home/ant/projects/ant_rng/env/bin/gunicorn 'app:ant_app'
+
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=default.target
