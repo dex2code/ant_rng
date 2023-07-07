@@ -1,0 +1,17 @@
+[Unit]
+Description=AntRNG main service
+After=network.target
+
+[Service]
+Type=simple
+
+User=ant
+
+WorkingDirectory=/home/ant/projects/ant_rng/env
+ExecStart=/home/ant/projects/ant_rng/env/bin/python3 /home/ant/projects/ant_rng/env/main.py
+
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=default.target
