@@ -1,2 +1,2 @@
 # ant_rng
-NAT true RNG
+ANT true RNG
