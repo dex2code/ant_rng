@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    <head>
+        <title>ANT true RNG</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.58, user-scalable=yes, minimum-scale=0.4, maximum-scale=1.0" />
+        <meta http-equiv="refresh" content="300; URL=/">
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+
+    <body>
+
+        <div id="header" class="div-header">
+            <div id="header-logo" class="div-header-logo"><img src="/static/images/ant.png"></div>
+            <div id="header-name" class="div-header-name">ANT true RNG</div>
+            <div id="header-about" class="div-header-about"><a href="https://docs.google.com/document/d/1zddk3C4PH2nZ-uPygEANr4hFzb1gQdA4R0Om1A6VkOQ" target="_blank">О проекте</a></div>
+        </div>
+
+        <div id="main" class="div-main">
+            <div style="text-align: left; font-size: 3em;">Генератор истинных</div>
+            <div style="text-align: right; font-size: 3em;">случайных чисел</div>
+            <br />
+            <div style="text-align: left; line-height: 1.5;">
+                Принцип работы генератора основан на пересчете координат муравьев в кортеж случайных чисел:
+            </div>
+            <div style="text-align: left;line-height: 1.3;">
+                <ol>
+                    <p><li>Фотографируем <a href="https://ru.wikipedia.org/wiki/%D0%A4%D0%BE%D1%80%D0%BC%D0%B8%D0%BA%D0%B0%D1%80%D0%B8%D0%B9" target="_blank">муравьиную ферму</a> в режиме реального времени (с учетом естественного освещения!);</li></p>
+                    <p><li>Пропускаем изображение через <a href="https://ultralytics.com/yolov8" target="_blank">обученную нейросеть</a> для поиска муравьев на фото;</li></p>
+                    <p><li>Считаем <a href="https://ru.wikipedia.org/wiki/SHA-3" target="_blank">SHA3-хэш</a> от списка (X,Y)-координат распознанных муравьев;</li></p>
+                    <p><li>Полученный хэш используем для накопления <a href="https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D0%BA_%D1%8D%D0%BD%D1%82%D1%80%D0%BE%D0%BF%D0%B8%D0%B8" target="_blank">энтропии</a> и генерации случайных чисел;</li></p>
+                    <p><li>Результат генерации доступен на этой странице или через запрос <a href="/api" target="_blank">API</a>;</li></p>
+                </ol><br />
+                <p style="text-align: justify;">Фотографии и случайные числа обновляются каждые 5 минут.</p>
+                <p style="text-align: justify;">! Данный проект сделан в ознакомительно-образовательных целях и не преследует целей промышленного использования !</p>
+            </div>
+        </div>
+
+        <div id="main" class="div-main" style="background-color: #4d4d4d; line-height: 1.5;">
+            <div style="text-align: center; font-size: 2em;">Текущее изображение:</div>
+            <p align="center"><img src="/static/result/result.png"></p>
+            <div style="text-align: left; font-size: 0.8em; padding: 10px;">
+                <p>
+                    UUID: <span style="color:#cfb1ff">{{ parsed_json['uuid'] }}</span><br />
+                    Timestamp: <span style="color:#cfb1ff">{{ parsed_json['timestamp'] }}</span><br />
+                    Время съемки изображения: <span style="color:#cfb1ff">{{ parsed_json['datetime'] }}</span><br />
+                </p
+                <p>
+                    Список координат: <span style="color:#ffc0cb">{{ parsed_json['coordinates'] }}</span><br /><br />
+                    SHA3: <span style="color:#eaff40; word-wrap:break-word; word-break:break-all; hyphens: auto;">{{ h }}</span><br /><br />
+                    Случайные числа: <span style="color:#adff2f">{{ rnd_array }}</span><br />
+                </p>
+
+            </div>
+        </div>
+
+        <div id="footer" class="div-footer">&copy;&nbsp;<strong>ANT true RNG</strong> by <a href="mailto:k.mmaxg@gmail.com">kmmax</a> 2023</div>
+    </body>
+
+</html>
