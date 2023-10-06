@@ -25,13 +25,10 @@ def app_root():
     s.update(seed_str.encode())
     my_hash_str = s.hexdigest()
     my_hash_bytes = s.digest()
-    my_hash_int = int.from_bytes(my_hash_bytes, "big")
 
     rnd_array = []
-
-    while my_hash_int:
-        rnd_array.append(my_hash_int % NUMBER_DIGITS)
-        my_hash_int = my_hash_int // NUMBER_DIGITS
+    for my_hash_byte in my_hash_bytes:
+        rnd_array.append(my_hash_byte)
 
     return render_template('index.html', parsed_json=parsed_json, h="0x" + my_hash_str, rnd_array=rnd_array)
 
@@ -57,9 +54,8 @@ def app_api():
     my_hash_int = int.from_bytes(my_hash_bytes, "big")
 
     rnd_array = []
-    while my_hash_int:
-        rnd_array.append(my_hash_int % NUMBER_DIGITS)
-        my_hash_int = my_hash_int // NUMBER_DIGITS
+    for my_hash_byte in my_hash_bytes:
+        rnd_array.append(my_hash_byte)
 
     api_result["uuid"] = str(parsed_json['uuid'])
     api_result["timestamp"] = parsed_json['timestamp']
