@@ -26,6 +26,3 @@ YOLO_SAVE_IMG = False
 RESULT_DIR = "static/result"
 RESULT_IMG_NAME = "result.png"
 RESULT_JSON_NAME = "result.json"
-
-
-NUMBER_DIGITS = 1000
