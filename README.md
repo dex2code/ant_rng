@@ -4,3 +4,5 @@
 Распознавание муравьев и получение их координат производится через нейросеть, библиотека ultralytics
 
 Школьный проект
+
+https://docs.google.com/document/d/1zddk3C4PH2nZ-uPygEANr4hFzb1gQdA4R0Om1A6VkOQ/edit?usp=sharing
